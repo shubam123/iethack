@@ -1,0 +1,54 @@
+.parallax-container
+{
+background: rgba(0,0,0,0.7);
+}
+
+#add_btn{
+	position:fixed;
+	right: 40px;
+	bottom: 40px;
+	z-index: 99;
+}
+
+.bkimg{
+	max-width:250px; 
+	max-height:300px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.card-content-das{
+	    background:rgba(76, 76, 76, 0.15)
+}
+.card{
+	box-shadow: 1px 0px 5px 5px rgba(0,0,0,0.2);
+}
+
+#addtask{
+	color: white;
+	background: rgba(0,0,0,0.7);
+	box-shadow: 1px 1px 5px 5px rgba(0,0,0,0.7);
+}
+.imgside{
+	 max-height:130px;
+}
+
+.crdr ul{
+  list-style: none;
+}
+
+.crdr li{
+	list-style: none;
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.chips .input {
+	color: white;
+}
+
+.parallax>img{
+	min-width: 100%;
+}
