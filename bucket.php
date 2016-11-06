@@ -146,8 +146,65 @@ if(!isset($_GET['buck_id']))
             ?>
           </li>
           <br clear="all"/>
+
+
+
           <?php } ?> 
       </ul>
+      <hr>
+        <br clear="all"><br>
+        <p>Comments:</p>
+          <div class="row">
+            <form class="col s12" method="POST" action="process/processcomment.php">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" class="materialize-textarea" name="comment"></textarea>
+                  <label for="textarea1">Add comment</label>
+                </div>
+              </div>
+
+              <input style="display: none;" type="text" name="buckid" value="<?php echo $bkid; ?>" />
+         
+              <div class="row">
+                <div class="right">
+                  <button type="submit" id="t" class="waves-effect waves-light btn">Submit</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+
+          <br>
+
+          <ul class="collection">
+
+          <?php
+
+                $query = "SELECT * FROM `comments` WHERE buckid='$bkid'";
+                $cm_result = $db->makequery($query);
+                while($row = mysqli_fetch_assoc($cm_result))
+                { 
+                  $username = $row['username'];
+                  $comment = $row['comment'];
+              ?>
+
+
+            <li class="collection-item avatar">
+            <i class="material-icons">perm_identity</i>
+              
+              <span class="title"><?php echo $username; ?></span>
+              <p>
+                <?php echo $comment; ?>
+              </p>
+              
+            </li>
+
+
+            <?php } ?>
+
+
+
+          </ul>
 
 
     </div>
@@ -156,6 +213,11 @@ if(!isset($_GET['buck_id']))
     <div class="col s12 m5">
 
       <div class="row">
+            <?php
+          $cdd = bnfrmbid($bkid);
+       ?>
+
+              <div class="col s8 offset-s4"><p class="center-align"><h4><i class="material-icons">assessment</i><?php echo $cdd; ?></h4></p></div>
 
           <div class="col s12 m7 offset-m3">
             <div class="card">
@@ -182,7 +244,8 @@ if(!isset($_GET['buck_id']))
       </div>
 
       <div class="row">
-        <div class="col s11 offset-s1"><p class="center-align">Share My Bucket List:</p></div>
+
+        <div class="col s11 offset-s1"><p class="center-align">Share Bucket List:</p></div>
         
         <div class="col s2 offset-s3">
           <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//localhost/projects/iethack/hack/bucket.php?buck_id=<?php echo $bkid; ?>"><i class="fa fa-3x fa-facebook" aria-hidden="true"></i></a>

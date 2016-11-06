@@ -26,6 +26,17 @@ function unmfrmuid($user_id)
 	return $row['username'];
 }
 
+//bucket name from bucket if
+function bnfrmbid($buck_id)
+{
+	$db=new Database;
+	$db->connect();
+	$query = "SELECT title FROM bucket WHERE bucket_id=$buck_id";
+	$result = $db->makequery($query);
+	$row = mysqli_fetch_assoc($result);
+	return $row['title'];
+}
+
 
 
 
